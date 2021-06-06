@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{%load static%}
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+		<meta name="description" content="Spectrum Solutions" />
+	<meta property="og:title" content="Spectrum Solutions" />
+	<meta property="og:description" content="Spectrum Solutions" />
+	<meta property="og:image" content="Spectrum Solutions" />
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- FAVICONS ICON -->
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+	<!-- PAGE TITLE HERE -->
+	<title>Spectrum Solutions</title>
+
+	<!-- MOBILE SPECIFIC -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+
+	<!-- STYLESHEETS -->
+     {% include 'job/u-links.html'%}
+
+
+	<!-- <link rel="stylesheet" type="text/css" href="plugins/revolution/revolution/css/layers.css">
+	<link rel="stylesheet" type="text/css" href="plugins/revolution/revolution/css/settings.css">
+	<link rel="stylesheet" type="text/css" href="plugins/revolution/revolution/css/navigation.css"> -->
+	<!-- Revolution Navigation Style -->
+	<style>
+		.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+
+  text-decoration: none;
+}
+	</style>
+
+</head>
+<body id="bg">
+<div id="loading-area">
+
+</div>
+<div class="page-wraper">
+	<!-- header -->
+    {%include 'job/userdashbordnavigation.html'%}
+
+    <!-- header END -->
+    <!-- Content -->
+    {% block content%}
+
+	{%endblock%}
+	<!-- Footer -->
+    {% include 'job/footer.html'%}
+    <!-- scroll top button -->
+    <button class="scroltop fa fa-arrow-up" ></button>
+</div></div>
+
+
+
+{%include 'job/l-links.html'%}
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+
+</body>
+
+
+</html>

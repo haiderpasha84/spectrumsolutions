@@ -1,0 +1,52 @@
+{% extends 'job/admin-home.html'%}
+
+{% block content%}
+
+<div class="container">
+<div class="row p-5">
+
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">Total Jobs</h5>
+    <p class="card-text "> <h2 style="font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%" align="center">
+      {{jobs}}</h2>
+    <hr></p>
+<!--    <center><a href="#" class="btn btn-primary">View</a></center>-->
+  </div>
+</div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">Total Companies</h5>
+    <p class="card-text "> <h2 style="font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%" align="center">
+      {{company}}</h2>
+    <hr></p>
+<!--    <center><a href="#" class="btn btn-primary">View</a></center>-->
+  </div>
+</div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">Total Users</h5>
+    <p class="card-text "> <h2 style="font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%" align="center">
+      {{user}}</h2>
+    <hr></p>
+<!--    <center><a href="/viewuser/" class="btn btn-primary ">View</a></center>-->
+  </div>
+</div>
+    </div>
+
+
+</div>
+</div>
+
+{%endblock%}

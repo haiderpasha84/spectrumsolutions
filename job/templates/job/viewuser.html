@@ -1,0 +1,49 @@
+{% extends 'job/admin-home.html'%}
+
+{% block content%}
+<div class="container mt-4">
+    <table id="example" class="display table table-striped table-responsive-md" style="width:100%">
+
+        <thead>
+        <tr>
+            <th scope="col">Se_no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact</th>
+
+            <th scope="col">Gender</th>
+
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data%}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.user.username}}</td>
+            <td>{{i.user.email}}</td>
+
+
+            <td>{{i.mobile}}</td>
+            <td>{{i.gender}}</td>
+
+            <td><img src="{{i.image.url}}" style="width:90px;height:80px;border-radius:50%"></td>
+            <td><a href="/deluser/{{i.user.id}}/" class="btn btn-danger" onclick="return confirm('Are you shure you want too del')">Delete</a></td>
+        </tr>
+
+        {%endfor%}
+
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+  $(document).ready(function() {
+   console.log("hiiiiiiiiiii")
+    $('#example').DataTable();
+} );
+</script>
+
+{%endblock%}

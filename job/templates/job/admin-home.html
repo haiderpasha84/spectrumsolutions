@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+		<meta name="description" content="Spectrum Solutions" />
+	<meta property="og:title" content="Spectrum Solutions" />
+	<meta property="og:description" content="Spectrum Solutions" />
+	<meta property="og:image" content="Spectrum Solutions" />
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- FAVICONS ICON -->
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+	<!-- PAGE TITLE HERE -->
+	<title>Spectrum Solutions</title>
+
+	<!-- MOBILE SPECIFIC -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ {% include 'job/u-links.html'%}
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+<div id="loading-area"></div>
+	<!-- header -->
+    {% include 'job/adminnavigation.html'%}
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(images/banner/bnr1.jpg); height:100px;" >
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Hii {{ request.session.userr|title}}</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="#">Home</a></li>
+							<li>Companies</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+		{% block content%}
+
+		{% endblock%}
+
+    </div>
+    <!-- Content END-->
+	<!-- Footer -->
+    {% include 'job/footer.html'%}
+    <!-- Footer END -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+
+
+<!-- JAVASCRIPT FILES ========================================= -->
+{%include 'job/l-links.html'%}
+</body>
+
+
+</html>

@@ -1,0 +1,29 @@
+
+{% extends 'job/companies.html'%}
+
+{% block content%}
+{% if error == "no" %}
+<script>
+
+    window.location.assign('{% url  'addjob'%}')
+</script>
+{%endif%}
+<div class="container mt-4 mb-5">
+
+
+
+    <form action="/add-cat/" method="post" class="p-5">
+        {% csrf_token%}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Catagory name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp"  name="catagoryy1">
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'job/userdashbord.html' %}
+{% block content %}
+
+<div class="container mt-5 p-5">
+    <div class="row offset-md-3">
+        <div class="card text-center w-75">
+
+            <div class="card-header">
+                <div class="col-md-12">
+                    <img src="{{data.image.url}}" style="width:160px;height:160px;border-radius:50%">
+                </div>
+                <div class="row" style="font-size:35px;">
+                    <div class="col-md-12">
+                        <u> {{data.title}}</u>
+                    </div>
+                    <div class="col-md-12">
+                        {{data.recruiter.company}}
+                    </div>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <div class="row" style="font-size:25px;margin-top:10px">
+                            <div class="col-md-12">
+                                 <span>Job Detail </span>
+                            </div>
+                        </div>
+                    </h5>
+
+
+                    <p class="card-text">
+                    <h6>
+                        <div class="col-md-12">
+                            <b><u>Salary:</u></b>   <span>   {{data.salary}} </span>
+                        </div>
+                    </h6>
+
+                    <h6>
+                        <div class="col-md-12">
+                             <b><u>Location:</u></b> <span>{{data.location}} </span>
+                        </div>
+                    </h6>
+                      <h6>
+                        <div class="col-md-12">
+                             <b><u>Position</u></b> <span>{{data.position}} </span>
+                        </div>
+                    </h6>
+
+                    <h6>
+                        <div class="col-md-12">
+                            <b><u>Experience:</u></b> <span>{{data.experience}} </span>
+                        </div>
+                    </h6>
+
+                    <h6>
+                        <div class="col-md-12">
+                            <b><u>Description:</u></b> <span>{{data.description}} </span>
+                        </div>
+                    </h6>
+
+                    <h6>
+                        <div class="col-md-12">
+                            <b><u>Post Date:</u></b> <span>{{data.start_date}} </span>
+                        </div>
+                    </h6>
+                    <h6>
+                        <div class="col-md-12">
+                           <b><u>End Date:</u></b> <span>{{data.end_date}} </span>
+                        </div>
+                    </h6>
+                     <h6>
+                        <div class="col-md-12">
+                           <b><u>Skills:</u></b> <span>{{data.skills}} </span>
+                        </div>
+                    </h6>
+
+                    </p>
+                    <a href="/applyjob/{{data.id}}" class="btn btn-primary">Apply</a>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'job/userdashbord.html' %}
+
+{% block content %}
+<form class="form-inline offset-md-8" action="/catagoryy/" method="post">
+    {% csrf_token %}
+  <div class="form-group mb-2" >
+           <select class="form-select form-control" aria-label="Default select example" name="catwise">
+  <option selected value="">All</option>
+  {% for i in catag%}
+  <option value="{{i.id}}">{{i.id}} .{{ i.catagory_name}}</option>
+  {%endfor%}
+</select>
+
+
+  </div>
+
+  <button type="submit" class="btn btn-primary mb-2">Search</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-5 p-5">
+
+
+    <table class="table table-bordered" id="myTable">
+        <thead>
+        <tr>
+            <th>Sr. No</th>
+            <th>Company</th>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Catagory</th>
+            <th>Post_Date</th>
+            <th>Last_date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for i in data %}
+
+        <tr style="color:black">
+            <td>{{forloop.counter}}</td>
+            <td>{{i.recruiter.company}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.location}}</td>
+            <td>{{i.catagory}}</td>
+            <td>{{i.start_date}}</td>
+            <td>{{i.end_date}}</td>
+            {% if i.id in li %}
+            <td> Applied</td>
+            {% else %}
+            <td><a href="{% url 'jobdetail' i.id %}">Apply</a>
+                {% endif %}
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'job/userdashbord.html'%}
+
+{% block content%}
+
+<div class="container">
+
+    <h2 style="font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%" align="center">
+        Latest Jobs</h2>
+    <hr>
+
+    {% for i in data%}
+  <div class="well">
+      <div class="media">
+      	<a class="pull-left" href="#">
+    		<img class="media-object" src="{{i.image.url}}" style="height:100px; width:100px; border-radius:20%;">
+  		</a>
+  		<div class="media-body p-4">
+    		<h4 class="media-heading">{{i.title}}</h4>
+          <p class="text-right">{{i.location}}</p>
+          <p>{{i.description|truncatechars:200}}</p>
+            <b><small class="text-primary"> {{i.catagory}}</small></b>
+          <ul class="list-inline list-unstyled">
+  			<li><span><i class="glyphicon glyphicon-calendar"></i>Posted at {{ i.start_date}}</span></li>
+            <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i>{{i.position}}</span>
+            <li>|</li>
+            <li>
+               <span class="glyphicon glyphicon-usd"></span>
+                        $ {{i.salary}}
+            </li>
+            <li>|</li>
+            <li>
+            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+             <span><i class="glyphicon glyphicon-calendar"></i>Closed at {{ i.end_date}}</span>
+            </li>
+			</ul>
+       </div>
+    </div>
+  </div>
+    <hr>
+
+    {% endfor %}
+
+</div>
+
+
+
+{%endblock%}

@@ -1,0 +1,42 @@
+{% extends 'job/admin-home.html'%}
+
+{% block content%}
+{% if  error == "yes" %}
+<script>
+    alert('Assign Status successfully');
+    window.location=('{% url 'acceptedcompany' %}');
+</script>
+{% endif %}
+
+{% if  error == "nott" %}
+<script>
+    alert('Rejected successfully');
+    window.location=('/company-accepted/');
+</script>
+{% endif %}
+<div class="container mt-4">
+
+
+
+    <form action="" method="post">
+        {% csrf_token%}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Company</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" value="{{data.company}}" aria-describedby="emailHelp" disabled>
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Status</label>
+            <!--    <input type="password" class="form-control" id="exampleInputPassword1">-->
+            <select class="form-select" aria-label="Default select example" id="exampleInputPassword1" name="status">
+                <option selected>{{data.status}}</option>
+                <option value="Accepted">Accept</option>
+                <option value="Rejected">Reject</option>
+                <option value="null">Pending</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

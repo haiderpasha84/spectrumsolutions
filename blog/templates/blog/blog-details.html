@@ -1,0 +1,278 @@
+{% extends 'base.html'%}
+{% block content%}
+<!-- header -->
+
+<!-- header END -->
+<!-- Content -->
+<div class="page-content bg-white">
+    <!-- inner page banner -->
+    <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(images/banner/bnr1.jpg);height:100px;">
+        <div class="container">
+            <div class="dez-bnr-inr-entry">
+                <h1 class="text-white">Blog Details</h1>
+                <!-- Breadcrumb row -->
+                <div class="breadcrumb-row">
+                    <ul class="list-inline">
+                        <li><a href="/blog">Home</a></li>
+                        <li>Blog Details</li>
+                    </ul>
+                </div>
+                <!-- Breadcrumb row END -->
+            </div>
+        </div>
+    </div>
+    <!-- inner page banner END -->
+    <div class="content-area">
+        <div class="container">
+            <div class="row">
+                <!-- Left part start -->
+                <div class="col-lg-8 col-md-7 m-b10">
+                    <!-- blog start -->
+
+                    <div class="blog-post blog-single blog-style-1">
+                        <div class="dez-post-meta">
+                            <ul class="d-flex align-items-center">
+                                <li class="post-date"><i class="fa fa-calendar"></i>{{i.timeStamp}}</li>
+                                <li class="post-author"><i class="fa fa-user"></i>By <a href="#">{{i.author.username}}</a>
+                                </li>
+                                <li class="post-comment"><i class="fa fa-comments-o"></i><a href="#">5k</a></li>
+                            </ul>
+                        </div>
+                        <div class="dez-post-title">
+                            <h4 class="post-title m-t0"><a href="#">{{i.tilte}}</a></h4>
+                        </div>
+                        <div class="dez-post-media dez-img-effect zoom-slow m-t20"><a href="#"><img
+                                src="{{i.thumbnail.url}}" alt=""></a></div>
+                        <div class="dez-post-text">
+                            <h5>{{i.title}}</h5>
+                            <p>
+                                 {% autoescape off%}
+                                {{i.content}}
+                                {% endautoescape%}
+                            </p>
+
+
+
+                            <div class="dez-divider bg-gray-dark"></div>
+                            <img class="alignright wow fadeIn blog-side-img" data-wow-delay="0.2s"
+                                 src="images/blog/grid/pic1.jpg" alt="">
+                            <h5>{{i.head1}}</h5>
+                            <p>{{i.chead1}}</p>
+                        </div>
+
+                        <div class="dez-divider bg-gray-dark"></div>
+                        <img class="alignright wow fadeIn blog-side-img" data-wow-delay="0.2s"
+                             src="images/blog/grid/pic1.jpg" alt="">
+                        <h5>{{i.head2}}</h5>
+                        <p>{{i.chead2}}</p>
+                    </div>
+                    <div class="dez-post-tags clear">
+                        <div class="post-tags"><a href="#">Child </a> <a href="#">Eduction </a> <a href="#">Money </a>
+                            <a href="#">Resturent </a></div>
+                    </div>
+                    <div class="dez-divider bg-gray-dark op4"><i class="icon-dot c-square"></i></div>
+                    <div class="share-details-btn">
+                        <ul>
+                            {% load social_share %}
+                            <li><h5 class="m-a0">Share Post</h5></li>
+                            <li>
+                              {% post_to_facebook "{{i.title}}" object_or_url "share on Facebook!"%}
+
+
+                            </li>
+                            <li>
+                                {% send_email object.title "New Song: {{object.title}}. Check it out!" object_or_url "Share via email" %}
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+
+
+<!--                    <div class="clear" id="comment-list">-->
+<!--                            <div class="comments-area" id="comments">-->
+<!--                                <h2 class="comments-title">8 Comments</h2>-->
+<!--                                <div class="clearfix m-b20">-->
+<!--                                    &lt;!&ndash; comment list END &ndash;&gt;-->
+<!--                                    <ol class="comment-list">-->
+<!--                                        <li class="comment">-->
+<!--                                            <div class="comment-body">-->
+<!--                                                <div class="comment-author vcard"> <img  class="avatar photo" src="images/testimonials/pic1.jpg" alt=""> <cite class="fn">Stacy poe</cite> <span class="says">says:</span> </div>-->
+<!--                                                <div class="comment-meta"> <a href="#">October 6, 2015 at 7:15 am</a> </div>-->
+<!--                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neqnsectetur adipiscing elit. Nam viae neqnsectetur adipiscing elit.-->
+<!--                                                    Nam vitae neque vitae sapien malesuada aliquet. </p>-->
+<!--                                                <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>-->
+<!--                                            </div>-->
+<!--                                            <ol class="children">-->
+<!--                                                <li class="comment odd parent">-->
+<!--                                                    <div class="comment-body">-->
+<!--                                                        <div class="comment-author vcard"> <img  class="avatar photo" src="images/testimonials/pic2.jpg" alt=""> <cite class="fn">Stacy poe</cite> <span class="says">says:</span> </div>-->
+<!--                                                        <div class="comment-meta"> <a href="#">October 6, 2015 at 7:15 am</a> </div>-->
+<!--                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet.-->
+<!--                                                            In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum sem felis,-->
+<!--                                                            ac elementum ligula blandit ac.</p>-->
+<!--                                                        <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>-->
+<!--                                                    </div>-->
+<!--                                                    <ol class="children">-->
+<!--                                                        <li class="comment odd parent">-->
+<!--                                                            <div class="comment-body">-->
+<!--                                                                <div class="comment-author vcard"> <img  class="avatar photo" src="images/testimonials/pic3.jpg" alt=""> <cite class="fn">Stacy poe</cite> <span class="says">says:</span> </div>-->
+<!--                                                                <div class="comment-meta"> <a href="#">October 6, 2015 at 7:15 am</a> </div>-->
+<!--                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet.-->
+<!--                                                                    In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum sem felis,-->
+<!--                                                                    ac elementum ligula blandit ac.</p>-->
+<!--                                                                <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>-->
+<!--                                                            </div>-->
+<!--                                                        </li>-->
+<!--                                                    </ol>-->
+<!--                                                    &lt;!&ndash; list END &ndash;&gt;-->
+<!--                                                </li>-->
+<!--                                            </ol>-->
+<!--                                            &lt;!&ndash; list END &ndash;&gt;-->
+<!--                                        </li>-->
+<!--                                        <li class="comment">-->
+<!--                                            <div class="comment-body">-->
+<!--                                                <div class="comment-author vcard"> <img  class="avatar photo" src="images/testimonials/pic1.jpg" alt=""> <cite class="fn">Stacy poe</cite> <span class="says">says:</span> </div>-->
+<!--                                                <div class="comment-meta"> <a href="#">October 6, 2015 at 7:15 am</a> </div>-->
+<!--                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet.-->
+<!--                                                    In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum sem felis,-->
+<!--                                                    ac elementum ligula blandit ac.</p>-->
+<!--                                                <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li class="comment">-->
+<!--                                            <div class="comment-body">-->
+<!--                                                <div class="comment-author vcard"> <img  class="avatar photo" src="images/testimonials/pic2.jpg" alt=""> <cite class="fn">Stacy poe</cite> <span class="says">says:</span> </div>-->
+<!--                                                <div class="comment-meta"> <a href="#">October 6, 2015 at 7:15 am</a> </div>-->
+<!--                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet.-->
+<!--                                                    In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum sem felis,-->
+<!--                                                    ac elementum ligula blandit ac.</p>-->
+<!--                                                <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <li class="comment">-->
+<!--                                            <div class="comment-body">-->
+<!--                                                <div class="comment-author vcard"> <img  class="avatar photo" src="images/testimonials/pic3.jpg" alt=""> <cite class="fn">Stacy poe</cite> <span class="says">says:</span> </div>-->
+<!--                                                <div class="comment-meta"> <a href="#">October 6, 2015 at 7:15 am</a> </div>-->
+<!--                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae neque vitae sapien malesuada aliquet.-->
+<!--                                                    In viverra dictum justo in vehicula. Fusce et massa eu ante ornare molestie. Sed vestibulum sem felis,-->
+<!--                                                    ac elementum ligula blandit ac.</p>-->
+<!--                                                <div class="reply"> <a href="#" class="comment-reply-link">Reply</a> </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                    </ol>-->
+<!--                                    &lt;!&ndash; comment list END &ndash;&gt;-->
+<!--                                    &lt;!&ndash; Form &ndash;&gt;-->
+<!--                                    <div class="comment-respond" id="respond">-->
+<!--                                        <h4 class="comment-reply-title" id="reply-title">Leave a Reply <small> <a style="display:none;" href="#" id="cancel-comment-reply-link" rel="nofollow">Cancel reply</a> </small> </h4>-->
+<!--                                        <form class="comment-form" id="commentform" method="post" action="http://sedatelab.com/developer/donate/wp-comments-post.php">-->
+<!--                                            <p class="comment-form-author">-->
+<!--                                                <label for="author">Name <span class="required">*</span></label>-->
+<!--                                                <input type="text" value="Author" name="Author"  placeholder="Author" id="author">-->
+<!--                                            </p>-->
+<!--                                            <p class="comment-form-email">-->
+<!--                                                <label for="email">Email <span class="required">*</span></label>-->
+<!--                                                <input type="text" value="email" placeholder="Email" name="email" id="email">-->
+<!--                                            </p>-->
+<!--                                            <p class="comment-form-url">-->
+<!--                                                <label for="url">Website</label>-->
+<!--                                                <input type="text"  value="url"  placeholder="Website"  name="url" id="url">-->
+<!--                                            </p>-->
+<!--                                            <p class="comment-form-comment">-->
+<!--                                                <label for="comment">Comment</label>-->
+<!--                                                <textarea rows="8" name="comment" placeholder="Comment" id="comment"></textarea>-->
+<!--                                            </p>-->
+<!--                                            <p class="form-submit">-->
+<!--                                                <input type="submit" value="Post Comment" class="submit" id="submit" name="submit">-->
+<!--                                            </p>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; Form &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+
+
+<!--                    endcomment////////////////-->
+
+                    <div class="fb-comments" data-href="http://localhost:8000/blogdisplay-post/{{i.post_id}}/" data-width="" data-numposts="5"></div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 sticky-top">
+                    <aside class="side-bar">
+                        <div class="widget">
+                            <h6 class="widget-title style-1">Search</h6>
+                            <div class="search-bx style-1">
+                                <form role="search" method="post" action="{% url 'postserch'%}">
+                                    {% csrf_token%}
+                                    <div class="input-group">
+                                        <input name="query" class="form-control" placeholder="Enter your keywords..."
+                                               type="text">
+                                        <span class="input-group-btn">
+												<button type="submit" class="fa fa-search text-primary"></button>
+                                            </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="widget recent-posts-entry">
+                            <h6 class="widget-title style-1">Recent Posts</h6>
+                            <div class="widget-post-bx">
+                                {% for i in data1%}
+                                <div class="widget-post clearfix">
+                                    <div class="dez-post-media"><img src="{{i.thumbnail.url}}" width="200"
+                                                                     height="143" alt=""></div>
+                                    <div class="dez-post-info">
+                                        <div class="dez-post-header">
+                                            <h6 class="post-title"><a href="#">{{i.title}}</a></h6>
+                                        </div>
+                                        <div class="dez-post-meta">
+                                            <ul class="d-flex align-items-center">
+                                                <li class="post-date">{{i.timeStamp}}</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                {%endfor%}
+
+                            </div>
+                        </div>
+
+
+<!--                        <div class="widget widget_archive">-->
+<!--                            <h6 class="widget-title style-1">Categories List</h6>-->
+<!--                            <ul>-->
+<!--                                <li><a href="#">aciform</a></li>-->
+<!--                                <li><a href="#">championship</a></li>-->
+<!--                                <li><a href="#">chastening</a></li>-->
+<!--                                <li><a href="#">clerkship</a></li>-->
+<!--                                <li><a href="#">disinclination</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+
+
+                    </aside>
+                </div>
+
+
+                <!-- blog END -->
+            </div>
+
+            <!-- Left part END -->
+            <!-- Side bar start -->
+
+            <!-- Side bar END -->
+        </div>
+
+        <!--            /////endrow-->
+    </div>
+</div>
+</div>
+<!-- Content END-->
+<!-- Footer -->
+
+{% endblock%}

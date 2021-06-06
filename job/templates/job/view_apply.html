@@ -1,0 +1,56 @@
+{% extends 'job/companies.html'%}
+{% block content%}
+
+
+<div class="container">
+    <table class="table table-bordered table-striped" id="myTable">
+        <thead>
+        <tr>
+            <th>Sr. No</th>
+            <th>FullName</th>
+            <th>Email Id</th>
+            <th>Title</th>
+            <th>contact</th>
+            <th>Company</th>
+            <th>Resume</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for i in data %}
+        {% ifequal request.user.username i.job.recruiter.user.username %}
+
+        <tr style="color:black">
+            <td>{{forloop.counter}}</td>
+            <td>{{i.sign.user.username}} {{i.sign.user.last_name}}</td>
+            <td>{{i.sign.user.email}}</td>
+            <td>{{i.job.title}}</td>
+            <td>{{i.sign.mobile}}</td>
+            <td>{{i.job.recruiter.company}}</td>
+            <td><a href="{{i.image.url}}" download>Download Resume</a>|
+                <form action="/rec/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{i.sign.user.email}}" name="emm">
+                    <input type="hidden" value="{{i.sign.user.username}}" name="unam">
+                    <input type="hidden" value="{{i.job.title}}" name="tit">
+                    <input type="submit" value="Contact" class="btn btn-primary">
+                    </form>
+
+            </td>
+
+        </tr>
+
+        {% endifequal %}
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <!-- Trigger the modal with a button -->
+
+
+
+</div>
+
+
+{% endblock%}

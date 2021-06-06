@@ -1,0 +1,42 @@
+{% extends 'job/userdashbord.html' %}
+{% block content %}
+{% load static %}
+
+{% ifequal error "notable" %}
+<script>
+    alert(' Application line is not opend');
+    window.location = "{% url 'userjobs' %}";
+</script>
+{% endifequal %}
+
+{% ifequal error "closed" %}
+<script>
+    alert('Application are close last date is over ');
+    window.location = "{% url 'userjobs' %}";
+</script>
+{% endifequal %}
+{% ifequal error "able" %}
+<script>
+    alert(' Apply Successfully');
+    window.location = "{% url 'userjobs' %}";
+</script>
+{% endifequal %}
+
+<div class="container" style="width:70%;margin-top:5%">
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+
+    <div class="form-group col-md-12">
+        <center> <label for="inputPassword4" style="font-size:30px">Upload Resume</label></center>
+      <input type="file" class="form-control"  name="image" id="inputPassword4">
+    </div>
+  </div>
+
+    <button type="submit" class="btn btn-primary btn-block mb-5" >Submit</button>
+</form>
+</div></div>
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'job/userdashbord.html'%}
+
+{%block content %}
+ <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+		tinyMCE.init({
+		 	'selector':'textarea'
+		})
+
+    </script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div class="container p-5 mb-5 " style="background:#F8F8F8;">
+<form method="post" action="{% url 'usrblog'%}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Company</label>
+      <input type="text" class="form-control" value="{{data.user.username}}" name="uname" readonly>
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Title</label>
+      <input type="text" class="form-control" placeholder="Enter Title " name="title" id="inputEmail4">
+    </div>
+
+  </div>
+
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+    <label for="exampleInputPassword1">Date</label>
+    <input type="date" class="form-control" id="exampleInputPassword1" name="date">
+    </div>
+    </div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Slug </label>
+      <input type="text" class="form-control"  name="slug" id="inputPassword4">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Featured Image</label>
+      <input type="file" class="form-control"  name="image" id="inputPassword4" required>
+    </div>
+  </div>
+
+
+
+
+
+
+
+    <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Status</label>
+       <select class="form-select" aria-label="Default select example" id="exampleInputPassword1" name="status">
+                <option value="1"selected>active</option>
+
+                <option value="0">pending</option>
+
+
+            </select>
+    </div>
+  </div>
+
+    <div class="form-group">
+  <label for="comment">Content:</label>
+  <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
+</div>
+
+
+
+<input type="submit" class="btn btn-primary btn-block" value="POST">
+</form>
+
+
+</div>
+
+
+{% endblock%}

@@ -1,0 +1,127 @@
+{% extends 'job/companies.html'%}
+
+{%block content %}
+
+
+
+<div class="container p-5 mb-5 " style="background:#F8F8F8;">
+<form method="post" action="/add-job/" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Company Name</label>
+      <input type="text" class="form-control" value="{{data.company}}" name="company" readonly>
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Job Title</label>
+      <input type="text" class="form-control" placeholder="Enter Title " name="title" id="inputEmail4">
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-12">
+    <label for="exampleInputPassword1">Start Date</label>
+    <input type="date" class="form-control" id="exampleInputPassword1" name="start_date">
+    </div>
+    </div>
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">End Date</label>
+      <input type="date" class="form-control" name="end_date" id="inputEmail4">
+    </div></div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Salary </label>
+      <input type="text" class="form-control"  name="salaryy" id="inputPassword4">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Company Logo</label>
+      <input type="file" class="form-control"  name="image" id="inputPassword4" required>
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Experience </label>
+      <input type="text" class="form-control"  name="experience" id="inputPassword4">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Position</label>
+      <input type="text" class="form-control"  name="position" id="inputPassword4">
+    </div>
+  </div>
+
+
+
+
+
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Location </label>
+      <input type="text" class="form-control"  name="loc" id="inputPassword4">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Time </label>
+       <select class="form-select" aria-label="Default select example" id="exampleInputPassword1" name="tim">
+                <option selected>Full-Time</option>
+
+                <option value="Part-time">Part-Time</option>
+
+
+            </select>
+    </div>
+  </div>
+
+
+
+
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Skills </label>
+      <input type="text" class="form-control"  name="skills" id="inputPassword4">
+    </div>
+        <div class="form-group col-md-6">
+      <label for="inputPassword4">Catagory </label>
+       <select class="form-select" aria-label="Default select example" id="exampleInputPassword1" name="jobcatago">
+                <option selected>All</option>
+                {% for ic in cat %}
+                <option value="{{ic.catagory_name}}">{{ic.catagory_name}}</option>
+                {%endfor%}
+
+            </select>
+    </div>
+    </div>
+
+
+
+
+<div class="form-row">
+
+
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Description </label>
+        <textarea name="description"></textarea>
+
+    </div>
+     <div class="form-group col-md-12">
+        <a href="/add-cat/" class="btn btn-primary">Add Catagory</a>
+    </div>
+  </div>
+
+<input type="submit" class="btn btn-primary btn-block">
+</form>
+
+
+</div>
+
+
+{% endblock%}

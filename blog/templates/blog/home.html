@@ -1,0 +1,128 @@
+{% extends 'base.html'%}
+    <!-- header END -->
+
+{% block content%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <!-- Content -->
+<hr>
+        <div class="page-content bg-white">
+        <!-- inner page banner -->
+
+        <!-- inner page banner END -->
+        <div class="content-area">
+            <div class="container">
+                <div class="row">
+                    <!-- Left part start -->
+                    <div class="col-lg-8 col-md-7 col-sm-12">
+                        <!-- Blog large img -->
+
+						{% for i in data%}
+						<div class="blog-post blog-lg blog-style-1">
+							<div class="dez-post-media dez-img-effect zoom-slow radius-sm"> <a href="{% url 'displaypost' i.post_id %}"><img src="{{i.thumbnail.url}}" alt="" style="height:540"></a> </div>
+							<div class="dez-info">
+								 <div class="dez-post-meta">
+									<ul class="d-flex align-items-center">
+										<li class="post-date"><i class="fa fa-calendar"></i>{{i.timeStamp}}</li>
+										<li class="post-author"><i class="fa fa-user"></i>By <a href="#">{{i.author.username}}</a> </li>
+
+									</ul>
+								</div>
+								<div class="dez-post-title ">
+									<h4 class="post-title font-24"><a href="{% url 'displaypost' i.post_id %}">{{i.title}}</a></h4>
+								</div>
+								<div class="dez-post-text">
+									<p>
+                                        {% autoescape off%}
+                                        {{i.content|truncatewords:20}}
+                                        {% endautoescape%}
+                                    </p>
+								</div>
+								<div class="dez-post-readmore blog-share">
+									<a href="{% url 'displaypost' i.post_id %}" title="READ MORE" rel="bookmark" class="site-button outline">READ MORE</a>
+								</div>
+							</div>
+						</div>
+						{%endfor%}
+						<!-- Blog large img END -->
+                        <div class="pagination-bx clearfix text-center">
+							<ul class="pagination">
+                                 {% if data.has_previous%}
+								<li class="previous"><a href="?page={{ data.previous_page_number}}">< Prev</a></li>
+                                 {% endif %}
+
+								<li class="active"><a href="">{{data.number}} out of {{data.paginator.num_pages}} </a></li>
+
+
+                                {% if data.has_next %}
+								<li class="next"><a href="?page={{ data.next_page_number}}">Next ></a></li>
+                                {% endif %}
+							</ul>
+						</div>
+                        <!-- Pagination END -->
+                    </div>
+
+
+
+
+
+                    <!-- Left part END -->
+                    <!-- Side bar start -->
+                    <div class="col-lg-4 col-md-5 col-sm-12 sticky-top">
+                        <aside  class="side-bar">
+                            <div class="widget">
+                                <h6 class="widget-title style-1">Search</h6>
+                                <div class="search-bx style-1">
+                                    <form role="search" method="post" action="{% url 'postserch'%}">
+										{% csrf_token %}
+                                        <div class="input-group">
+                                            <input name="query" class="form-control" placeholder="Enter your keywords..." type="text">
+                                            <span class="input-group-btn">
+												<button type="submit" class="fa fa-search text-primary"></button>
+                                            </span>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="widget recent-posts-entry">
+                                <h6 class="widget-title style-1">Recent Posts</h6>
+                                <div class="widget-post-bx">
+                                    {%for i in data1%}
+                                    <div class="widget-post clearfix">
+                                        <div class="dez-post-media"> <img src="{{i.thumbnail.url}}" width="200" height="143" alt=""> </div>
+                                        <div class="dez-post-info">
+                                            <div class="dez-post-header">
+                                                <h6 class="post-title"><a href="{% url 'displaypost' i.post_id %}">{{i.title}}</a></h6>
+                                            </div>
+											<div class="dez-post-meta">
+												<ul class="d-flex align-items-center">
+													<li class="post-date"><i class="fa fa-calendar"></i>{{i.timeStamp}}</li>
+												</ul>
+											</div>
+                                        </div>
+                                    </div>
+                                    {%endfor%}
+
+                                </div>
+                            </div>
+
+
+
+
+
+                        </aside>
+                    </div>
+                    <!-- Side bar END -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content END-->
+
+	<!-- Footer -->
+{% endblock%}

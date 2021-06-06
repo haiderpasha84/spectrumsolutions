@@ -1,0 +1,55 @@
+{% extends 'job/userdashbord.html'%}
+
+{% block content%}
+
+<div class="container mb-5" style="background-color:#F3F0EF;height:600px;width:850px;margin-top:3%; border-radius:20px;">
+    <div class="row p-3 " style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6 mt-4" style="font-family : 'Monotype Corsiva' ; font-size:30px;margin-left:23%">
+           <img src="{{data.image.url}}" style="width:140px;height:140px;border-radius:30%">
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px">
+            First Name
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.user.username}}
+        </div>
+    </div>
+
+     <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;">
+            Email ID
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.user.email}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;">
+           Contact NO.
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.mobile}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;">
+           Gender
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.gender}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:white;margin-left:22%;margin-top:2%">
+             <a href="/prof/" class="btn btn-primary text-white" style="font-size:20px;">Edit Profile</a>
+        </div>
+    </div>
+
+
+</div>
+
+{%endblock%}

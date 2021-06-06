@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+
+
+
+{% block content%}
+
+<div class="container p-5">
+<h2>Search results : </h2>
+    {% if data|length < 1 %}
+   <p>No search results</p>
+    Your search query : <b>{{query}}</b> did not match any documents. <br>
+    Suggestions:
+    <ul>
+    <li>Make sure that all words are spelled correctly.</li>
+    <li>Try more general keywords.</li>
+   <li> Try fewer keywords.</li>
+   <li> Try different keywords.</li>
+    </li>
+    </ul>
+
+
+    {% endif %}
+
+
+ </div>
+
+
+
+<!--////////////////////-->
+<div class="content-area">
+            <div class="container max-w900">
+                <!-- Blog large img -->
+				{% for i in data%}
+                <div class="blog-post blog-lg blog-style-1">
+                    <div class="dez-post-media dez-img-effect zoom-slow radius-sm"> <a href="#"><img src="{{i.thumbnail.url}}" alt=""></a> </div>
+                    <div class="dez-info">
+						 <div class="dez-post-meta">
+							<ul class="d-flex align-items-center">
+								<li class="post-date"><i class="fa fa-calendar"></i>{{i.timeStamp}}</li>
+								<li class="post-author"><i class="fa fa-user"></i>By <a href="#">{{i.author.username}}</a> </li>
+								<li class="post-comment"><i class="fa fa-comments-o"></i><a href="#">5k</a> </li>
+							</ul>
+						</div>
+						<div class="dez-post-title ">
+							<h4 class="post-title font-24"><a href="#">{{i.tilte}}</a></h4>
+						</div>
+						<div class="dez-post-text">
+                            <h5> {{i.title}}</h5>
+							<p>{{i.content|truncatewords:50}}</p>
+                        </div>
+						<div class="dez-post-readmore blog-share">
+							<a href="{% url 'displaypost' i.post_id %}" title="READ MORE" rel="bookmark" class="site-button outline">READ MORE</a>
+						</div>
+					</div>
+                </div>
+				{% endfor%}
+
+                <!-- Blog large img END -->
+                <!-- Pagination start -->
+
+                <!-- Pagination END -->
+            </div>
+        </div>
+
+
+
+{%endblock%}

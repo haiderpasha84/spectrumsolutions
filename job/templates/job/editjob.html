@@ -1,0 +1,93 @@
+{% extends 'job/companies.html'%}
+
+{%block content %}
+
+
+
+
+<div class="container p-5 mb-5 " style="background:#F8F8F8;">
+<form method="post" action="/editjob/{{data.id}}/" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Company Name</label>
+      <input type="text" class="form-control" value="{{data.recruiter.company}}" name="company" readonly>
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Job Title</label>
+      <input type="text" class="form-control" value="{{data.title}}" name="title" >
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-12">
+    <label for="exampleInputPassword1">Start Date</label>
+    <input type="date" class="form-control"  name="start_date" value="{{data.start_date}}">
+    </div></div>
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">End Date</label>
+      <input type="date" class="form-control" name="end_date" id="inputEmail4" value="{{data.end_date}}">
+    </div></div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Salary </label>
+      <input type="text" class="form-control"  name="position"  value="{{data.position}}">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Company Logo</label>
+      <input type="file" class="form-control"  name="image"  required value="{{data.image.url}}">
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Experience </label>
+      <input type="text" class="form-control"  name="experience"  value="{{data.experience}}">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Location</label>
+      <input type="text" class="form-control"  name="location"  value="{{data.location}}">
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Skills </label>
+      <input type="text" class="form-control"  name="skills" id="inputPassword4" value="{{data.skills}}">
+    </div>
+        <div class="form-group col-md-6">
+      <label for="inputPassword4">Catagory </label>
+       <select class="form-select" aria-label="Default select example" id="exampleInputPassword1" name="jobcatago">
+                <option selected value="{{data.catagory.catagory_name}}">{{data.catagory.catagory_name}}</option>
+                {% for ic in cat %}
+                <option value="{{ic.catagory_name}}">{{ic.catagory_name}}</option>
+                {%endfor%}
+
+            </select>
+    </div>
+    </div>
+<div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Description </label>
+        <textarea name="description" value="{{data.description}}"></textarea>
+
+    </div>
+     <div class="form-group col-md-12">
+        <a href="/add-cat/" class="btn btn-primary">Add Catagory</a>
+    </div>
+  </div>
+
+<input type="submit" class="btn btn-primary btn-block">
+</form>
+
+
+</div>
+
+
+{% endblock%}

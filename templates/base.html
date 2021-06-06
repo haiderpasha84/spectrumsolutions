@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+    <meta name="robots" content=""/>
+    <meta name="description" content="Spectrum Staffing Solutions"/>
+    <meta property="og:title" content="Spectrum Staffing Solutions"/>
+    <meta property="og:description" content="Spectrum Staffing Solutions"/>
+    <meta property="og:image" content="Spectrum Staffing Solutions"/>
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- FAVICONS ICON -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"/>
+
+    <!-- PAGE TITLE HERE -->
+    <title>Spectrum Staffing Solutions</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="wqYGnlsU"></script>
+    <!-- STYLESHEETS -->
+    {% include 'blog/ul.html'%}
+</head>
+<body id="bg">
+<div class="page-wraper">
+    <div id="loading-area"></div>
+
+    {% include 'blog/header.html'%}
+
+
+    {% block content%}
+
+    {%endblock%}
+
+    {% include 'job/footer.html'%}
+    <!-- Footer END -->
+    <!-- scroll top button -->
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+
+
+{% include 'blog/llinks.html'%}
+
+</body>
+
+</html>

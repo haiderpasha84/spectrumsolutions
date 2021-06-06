@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    {% load static%}
+
+</head>
+<body>
+<!--    <h1>Hello, world!</h1>-->
+<!--     <h3>{{company}}</h3>-->
+<!--    <h3>{{datex }}</h3>-->
+<!--    <h3>{{user}}</h3>-->
+<!--    <h3>{{title}}</h3>-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<div class="p-5">
+    <div class="row">
+        <image src="{{site}}{% static 'images/l5.jpg' %}">
+            <center><h1 class=" text-center text-primary p-2">Spectrum Solutions</h1></center>
+    </div>
+
+    <hr>
+    <h4 class="p-4 text-dark">
+
+        <b>{{company}}</b>: <b>{{title}}</b> Interview Opportunity<br>
+
+        Hi <b>{{user}}</b>,<br>
+
+        I am <b>{{title}}</b> at <b>{{company}}</b>, and we’re currently looking for a <b>{{title}}</b> to join our
+        team. [CONTACT NAME] spoke very highly of your skills and recommended you for the role.
+
+        I took a look at some of your work online, and given your experience, I think you’d be an excellent fit for the
+        role. This is a great opportunity to learn more about industry alongside an ambitious team.
+
+        I’d love to hear more about you and talk to you about the role. Are you available for a 15-minute phone call
+        sometime tomorrow?
+
+        Let me know!
+
+        Best,
+
+        <h3>{{user}}</h3>
+        <h3 class="text-primary">{{emaill}}</h3>
+
+        <h3>Interview Date: <u>{{datex}}</u></h3>
+         {{message}}
+
+    </h4>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

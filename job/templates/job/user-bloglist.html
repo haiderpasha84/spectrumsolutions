@@ -1,0 +1,47 @@
+{% extends 'job/userdashbord.html'%}
+{% block content%}
+<div class="container">
+
+    <h2 style="font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%" align="center">
+        Blog List</h2>
+    <hr>
+
+    {% for i in data%}
+
+  <div class="well">
+      <div class="media">
+      	<a class="pull-left" href="/user-login/">
+    		<img class="media-object" src="{{i.thumbnail.url}}" style="height:100px; width:100px; border-radius:20%;">
+  		</a>
+  		<div class="media-body p-4">
+    		<h4 class="media-heading">{{i.title}}</h4>
+
+          <ul class="list-inline list-unstyled">
+  			<li><span><i class="glyphicon glyphicon-calendar"></i>Posted at | {{ i.timeStamp}}</span></li>
+            <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i>{{i.author}}</span>
+            <li>|</li>
+              <span><i class="glyphicon glyphicon-del"></i><small><a href="{% url 'udelblog' i.post_id%}" class="btn btn-danger" onclick=" return confirm('are you sure you want to delete')">del</a></small></span>
+
+
+
+			</ul>
+       </div>
+    </div>
+  </div>
+    <hr>
+
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
